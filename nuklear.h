@@ -3584,6 +3584,9 @@ enum nk_style_colors {
     NK_COLOR_BUTTON,
     NK_COLOR_BUTTON_HOVER,
     NK_COLOR_BUTTON_ACTIVE,
+    NK_COLOR_CHEBOX,
+    NK_COLOR_CHEBOX_HOVER,
+    NK_COLOR_CHEBOX_CURSOR,    
     NK_COLOR_TOGGLE,
     NK_COLOR_TOGGLE_HOVER,
     NK_COLOR_TOGGLE_CURSOR,
@@ -17889,6 +17892,9 @@ NK_API void nk_style_default(struct nk_context *ctx){nk_style_from_table(ctx, 0)
     NK_COLOR(NK_COLOR_BUTTON,                   50, 50, 50, 255) \
     NK_COLOR(NK_COLOR_BUTTON_HOVER,             40, 40, 40, 255) \
     NK_COLOR(NK_COLOR_BUTTON_ACTIVE,            35, 35, 35, 255) \
+    NK_COLOR(NK_COLOR_CHEBOX,                   170,170,170,255) \
+    NK_COLOR(NK_COLOR_CHEBOX_HOVER,             200, 200, 200, 255)  \
+    NK_COLOR(NK_COLOR_CHEBOX_CURSOR,            90,90,90,255)    \
     NK_COLOR(NK_COLOR_TOGGLE,                   100,100,100,255) \
     NK_COLOR(NK_COLOR_TOGGLE_HOVER,             120,120,120,255) \
     NK_COLOR(NK_COLOR_TOGGLE_CURSOR,            45, 45, 45, 255) \
@@ -18044,11 +18050,11 @@ nk_style_from_table(struct nk_context *ctx, const struct nk_color *table)
     /* checkbox toggle */
     toggle = &style->checkbox;
     nk_zero_struct(*toggle);
-    toggle->normal          = nk_style_item_color(table[NK_COLOR_TOGGLE]);
-    toggle->hover           = nk_style_item_color(table[NK_COLOR_TOGGLE_HOVER]);
-    toggle->active          = nk_style_item_color(table[NK_COLOR_TOGGLE_HOVER]);
-    toggle->cursor_normal   = nk_style_item_color(table[NK_COLOR_TOGGLE_CURSOR]);
-    toggle->cursor_hover    = nk_style_item_color(table[NK_COLOR_TOGGLE_CURSOR]);
+    toggle->normal          = nk_style_item_color(table[NK_COLOR_CHEBOX_CURSOR]);
+    toggle->hover           = nk_style_item_color(table[NK_COLOR_CHEBOX_HOVER]);
+    toggle->active          = nk_style_item_color(table[NK_COLOR_CHEBOX_HOVER]);
+    toggle->cursor_normal   = nk_style_item_color(table[NK_COLOR_CHEBOX]);
+    toggle->cursor_hover    = nk_style_item_color(table[NK_COLOR_CHEBOX_HOVER]);
     toggle->userdata        = nk_handle_ptr(0);
     toggle->text_background = table[NK_COLOR_WINDOW];
     toggle->text_normal     = table[NK_COLOR_TEXT];
